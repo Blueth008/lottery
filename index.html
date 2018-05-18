@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script src="http://libs.baidu.com/jquery/1.7.0/jquery.min.js"></script>
+    <script src="JavaScript/jquery.rotate.min.js"></script>
+
+    <title>转盘抽奖</title>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    #turntable {
+        position:relative;
+        width: 448px;
+        height:448px;
+     //   border: 1px solid red;
+    }
+    #pointer {
+        position: absolute;
+        width:174px;
+        height:228px;
+      //  border:1px dashed blue;
+        z-index: 1;
+        left:50%;
+        top:50%;
+        margin-left: -94px;
+        margin-top: -130px;
+    }
+
+    </style>
+</head>
+<body>
+
+<div class="">
+    <div id="turntable">
+        <img  id='rotate' src="image/turntable2.png">
+        <div >
+            <img id="pointer" src="image/pointer.png">
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<script src="JavaScript/pointer-rotate.js"></script>
+
+</body>
+</html>
