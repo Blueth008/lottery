@@ -48,14 +48,11 @@ $(function () {
         console.log(power);   //抽奖前奖品数
         if(power[rnd]-->0){
             console.log(power);  //抽奖后奖品数
-            s--;
+            s--; 
         }else {
             power[rnd]=0;
             rnd=0;    //设置转盘角度
-            if(s == 0){
-                alert("奖品发送完毕");
-                return;
-            }
+   
         }
         console.log("奖励："+rnd);   //实际获得奖品
 
@@ -67,7 +64,11 @@ $(function () {
                 isRotate = !isRotate;
                 alert('恭喜您获得“'+arr0[rnd]+'”奖励'); //可以转换为数组
             }
-        });
+        });  
+        if(s == 0){
+                alert("奖品发送完毕");
+                return;
+            }
 
     })
 });
