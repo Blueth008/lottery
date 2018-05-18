@@ -43,6 +43,29 @@ $(function () {
             *
             * */
         }
+		
+		 {
+            //100%中奖事件，抽完一类奖品，计数清零，删除类别；
+            arrCt=[1,2,3,4];   //奖品等级一等奖 --- 四等奖
+            awardNum =[1,2,3,4];   //奖品数量 10
+            var aws= awardNum.reduce(function (p1, p2) {
+                return p1+p2;
+            });
+            //随机抽数字
+
+            var mp = Math.floor(Math.random()*4+1 );  //随机1-4
+           if( awardNum[mp]-- == 0)           {
+               arrCt.slice(mp,1);//剔除掉已经没有奖品的等级
+           }//奖品数减少
+            aws--;
+
+           if(aws == 0 ){
+                console.log("奖品抽完了");
+                return;
+
+            }
+
+        }
 
         console.log("随机数字："+rnd);
         console.log(power);   //抽奖前奖品数
