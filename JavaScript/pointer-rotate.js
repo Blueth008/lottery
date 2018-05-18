@@ -11,7 +11,11 @@ $(function () {
 
     };
 
-    var power=[0,1,1,1,1,2,5];   //奖品分布个数
+    var power=[0,1,1,1,1,2,1];   //奖品分布个数
+    var s = power.reduce(function (p1, p2) {
+        return p1+p2;   //求奖品的总数，为0时候返回禁止转盘
+    });
+
     $('#pointer').click(function () {
 
         if(isRotate) return; //先停止避免连续的click造成加快转盘
@@ -26,28 +30,32 @@ $(function () {
             a4=[1,4];
             a5=[0];
             var round = Math.floor(Math.random()*100);
+            console.log("round "+round);
             if(round >20 ) {
                 console.log('未中奖');
-            }if(round>10){
-              console.log('XX奖');
-             } else  {    }
+            }else if(round>10){
+              console.log('五等奖');
+             } else  {  console.log(' 4321等奖');  }
         }
         { //根据用户自定义等级来* 概率
             /*
             * 比如 Lv4 概率提升20  那么 a1中随机数字a1*=0.8; 可能提升到a2 中 Lv3 提升30% 类推a1 *=0.7
             *
             * */
-
-
         }
+
         console.log("随机数字："+rnd);
         console.log(power);   //抽奖前奖品数
         if(power[rnd]-->0){
             console.log(power);  //抽奖后奖品数
-
+            s--;
         }else {
             power[rnd]=0;
             rnd=0;    //设置转盘角度
+            if(s == 0){
+                alert("奖品发送完毕");
+                return;
+            }
         }
         console.log("奖励："+rnd);   //实际获得奖品
 
@@ -60,12 +68,6 @@ $(function () {
                 alert('恭喜您获得“'+arr0[rnd]+'”奖励'); //可以转换为数组
             }
         });
-        var s = power.reduce(function (p1, p2) {
-            return p1+p2;
-        });
 
-        if(s == 0){
-            alert("奖品发送完毕");
-        }
     })
 });
